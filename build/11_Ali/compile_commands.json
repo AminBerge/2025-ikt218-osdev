@@ -1,0 +1,67 @@
+[
+{
+  "directory": "/workspaces/2025-ikt218-osdev-1/build/11_Ali",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2025-ikt218-osdev-1/src/11_Ali/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/kernel.c.o -c /workspaces/2025-ikt218-osdev-1/src/11_Ali/src/kernel.c",
+  "file": "/workspaces/2025-ikt218-osdev-1/src/11_Ali/src/kernel.c"
+},
+{
+  "directory": "/workspaces/2025-ikt218-osdev-1/build/11_Ali",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2025-ikt218-osdev-1/src/11_Ali/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/descriptor_tables.c.o -c /workspaces/2025-ikt218-osdev-1/src/11_Ali/src/descriptor_tables.c",
+  "file": "/workspaces/2025-ikt218-osdev-1/src/11_Ali/src/descriptor_tables.c"
+},
+{
+  "directory": "/workspaces/2025-ikt218-osdev-1/build/11_Ali",
+  "command": "/usr/bin/nasm -I/workspaces/2025-ikt218-osdev-1/src/11_Ali/include -f elf32 -o CMakeFiles/uiaos-kernel.dir/src/gdt_flush.asm.o /workspaces/2025-ikt218-osdev-1/src/11_Ali/src/gdt_flush.asm",
+  "file": "/workspaces/2025-ikt218-osdev-1/src/11_Ali/src/gdt_flush.asm"
+},
+{
+  "directory": "/workspaces/2025-ikt218-osdev-1/build/11_Ali",
+  "command": "/usr/bin/nasm -I/workspaces/2025-ikt218-osdev-1/src/11_Ali/include -f elf32 -o CMakeFiles/uiaos-kernel.dir/src/interrupt.asm.o /workspaces/2025-ikt218-osdev-1/src/11_Ali/src/interrupt.asm",
+  "file": "/workspaces/2025-ikt218-osdev-1/src/11_Ali/src/interrupt.asm"
+},
+{
+  "directory": "/workspaces/2025-ikt218-osdev-1/build/11_Ali",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2025-ikt218-osdev-1/src/11_Ali/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/isr.c.o -c /workspaces/2025-ikt218-osdev-1/src/11_Ali/src/isr.c",
+  "file": "/workspaces/2025-ikt218-osdev-1/src/11_Ali/src/isr.c"
+},
+{
+  "directory": "/workspaces/2025-ikt218-osdev-1/build/11_Ali",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2025-ikt218-osdev-1/src/11_Ali/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/monitor.c.o -c /workspaces/2025-ikt218-osdev-1/src/11_Ali/src/monitor.c",
+  "file": "/workspaces/2025-ikt218-osdev-1/src/11_Ali/src/monitor.c"
+},
+{
+  "directory": "/workspaces/2025-ikt218-osdev-1/build/11_Ali",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2025-ikt218-osdev-1/src/11_Ali/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/idt.c.o -c /workspaces/2025-ikt218-osdev-1/src/11_Ali/src/idt.c",
+  "file": "/workspaces/2025-ikt218-osdev-1/src/11_Ali/src/idt.c"
+},
+{
+  "directory": "/workspaces/2025-ikt218-osdev-1/build/11_Ali",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2025-ikt218-osdev-1/src/11_Ali/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/port.c.o -c /workspaces/2025-ikt218-osdev-1/src/11_Ali/src/port.c",
+  "file": "/workspaces/2025-ikt218-osdev-1/src/11_Ali/src/port.c"
+},
+{
+  "directory": "/workspaces/2025-ikt218-osdev-1/build/11_Ali",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2025-ikt218-osdev-1/src/11_Ali/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/mem.c.o -c /workspaces/2025-ikt218-osdev-1/src/11_Ali/src/mem.c",
+  "file": "/workspaces/2025-ikt218-osdev-1/src/11_Ali/src/mem.c"
+},
+{
+  "directory": "/workspaces/2025-ikt218-osdev-1/build/11_Ali",
+  "command": "/usr/bin/nasm -I/workspaces/2025-ikt218-osdev-1/src/11_Ali/include -f elf32 -o CMakeFiles/uiaos-kernel.dir/src/idt_flush.asm.o /workspaces/2025-ikt218-osdev-1/src/11_Ali/src/idt_flush.asm",
+  "file": "/workspaces/2025-ikt218-osdev-1/src/11_Ali/src/idt_flush.asm"
+},
+{
+  "directory": "/workspaces/2025-ikt218-osdev-1/build/11_Ali",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2025-ikt218-osdev-1/src/11_Ali/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/irq.c.o -c /workspaces/2025-ikt218-osdev-1/src/11_Ali/src/irq.c",
+  "file": "/workspaces/2025-ikt218-osdev-1/src/11_Ali/src/irq.c"
+},
+{
+  "directory": "/workspaces/2025-ikt218-osdev-1/build/11_Ali",
+  "command": "/usr/bin/nasm -I/workspaces/2025-ikt218-osdev-1/src/11_Ali/include -f elf32 -o CMakeFiles/uiaos-kernel.dir/src/multiboot2.asm.o /workspaces/2025-ikt218-osdev-1/src/11_Ali/src/multiboot2.asm",
+  "file": "/workspaces/2025-ikt218-osdev-1/src/11_Ali/src/multiboot2.asm"
+},
+{
+  "directory": "/workspaces/2025-ikt218-osdev-1/build/11_Ali",
+  "command": "/usr/local/bin/i686-elf-gcc -I/workspaces/2025-ikt218-osdev-1/src/11_Ali/include -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-stack-protector -fno-stack-check -fno-lto -fPIE -m32 -march=i386 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -Wno-main -g -Wno-unused-variable -Wno-unused-parameter -std=gnu99 -o CMakeFiles/uiaos-kernel.dir/src/printf.c.o -c /workspaces/2025-ikt218-osdev-1/src/11_Ali/src/printf.c",
+  "file": "/workspaces/2025-ikt218-osdev-1/src/11_Ali/src/printf.c"
+}
+]

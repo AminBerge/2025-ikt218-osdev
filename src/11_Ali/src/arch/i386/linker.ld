@@ -1,13 +1,11 @@
 ENTRY(_start)
 
 SECTIONS {
-    /* Start kernel at 1MB (0x00100000) */
     . = 1M;
 
-    /* Multiboot2 header must be in the first 8192 bytes of the kernel
-       and aligned to 8 bytes. */
-    .boot ALIGN(8) :
+    .boot :
     {
+        /* Ensure that the multiboot header is at the beginning! */
         *(.multiboot_header)
     }
 
@@ -15,7 +13,7 @@ SECTIONS {
     .text :
     {
         *(.text .text.*)
-    }0
+    }
 
     . = ALIGN(4K);
     .rodata :
@@ -35,7 +33,5 @@ SECTIONS {
         *(.bss .bss.*)
     }
 
-    end = .;
-    _end = .;
-    __end = .;
+	end = .; _end = .; __end = .;
 }

@@ -1,36 +1,60 @@
+#include <multiboot2.h>
+
 #include "libc/stdint.h"
 #include "libc/stddef.h"
 #include "libc/stdbool.h"
-#include <multiboot2.h>
-#include "monitor.h"
-#include "descriptor_tables.h"
-#include "printf.h"
+#include "libc/system.h"
 
-// Multiboot2 info structure
+#include "pit.h"
+#include "common.h"
+#include "descriptor_tables.h"
+#include "interrupts.h"
+#include "monitor.h"
+#include "memory/memory.h"
+
+// Structure to hold multiboot information.
 struct multiboot_info {
     uint32_t size;
     uint32_t reserved;
     struct multiboot_tag *first;
 };
 
-int main(uint32_t magic, struct multiboot_info* mb_info_addr) {
-    // Step 1: Initialize descriptor tables (GDT + IDT)
-    init_descriptor_tables();
+// Forward declaration for the C++ kernel main function.
+int kernel_main();
 
-    // Step 2: Print welcome message to screen using monitor
-   printf("Hello World!\n");
-    printf("Interrupt test: %d\n", 3);
+// End of the kernel image, defined elsewhere.
+extern uint32_t end;
 
-    // Step 3: Trigger software interrupts for testing
-    asm volatile("int $0x3");
-    asm volatile("int $0x4");
+// Main entry point for the kernel, called from boot code.
+// magic: The multiboot magic number, should be MULTIBOOT2_BOOTLOADER_MAGIC.
+// mb_info_addr: Pointer to the multiboot information structure.
+int kernel_main_c(uint32_t magic, struct multiboot_info* mb_info_addr) {
+    // Initialize the monitor (screen output)
+    monitor_initialize();
+  
+    // Initialize the Global Descriptor Table (GDT).
+    init_gdt();
 
-    // Step 4: Placeholder for future multiboot parsing (if needed)
-    (void)magic;
-    (void)mb_info_addr;
+    // Initialize the Interrupt Descriptor Table (IDT).
+    init_idt();
 
-    // Step 5: Loop forever to avoid returning to bootloader
-    while (1);
+    // Initialize the hardware interrupts.
+    init_irq();
 
-    return 0;
+    // Initialize the kernel's memory manager using the end address of the kernel.
+    init_kernel_memory(&end);
+
+    // Initialize paging for memory management.
+    init_paging();
+
+    // Print memory information.
+    print_memory_layout();
+
+    init_pit();
+
+    // Print a hello world message.
+    printf("Hello World!\n");
+
+    // Call the C++ main function of the kernel.
+    return kernel_main();
 }

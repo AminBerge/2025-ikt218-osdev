@@ -15,7 +15,6 @@ cmake_minimum_required(VERSION 3.22.1)
 project(UiAOS LANGUAGES C CXX ASM_NASM)
 
 # Create a lock file to prevent parallel runs of CMake
-
 file(LOCK ${CMAKE_SOURCE_DIR} DIRECTORY GUARD FILE)
 
 ########################################
@@ -59,25 +58,42 @@ set(OS_KERNEL_LINKER "${CMAKE_CURRENT_SOURCE_DIR}/src/arch/${OS_ARCH_TARGET}/lin
 
 # Add executable target for the kernel
 add_executable(uiaos-kernel 
-	# src/multiboot2.asm # TODO: Add multiboot2 support
-    src/kernel.c
-	src/descriptor_tables.c
-	src/gdt_flush.asm
-	src/interrupt.asm
-	src/isr.c
+	
+	# Stdlib
+	src/libc/panic.c
+	src/libc/system.c
+	src/libc/string.c
+	src/libc/stdio.c
+
+	src/common.c
 	src/monitor.c
+	src/gdt.c
 	src/idt.c
-	src/port.c
-	src/mem.c
-	src/idt_flush.asm
 	src/irq.c
-	src/multiboot2.asm
-	src/printf.c
+	src/isr.c
+	src/isr_asm.asm
+	src/descriptor_table.asm
+
+	src/multiboot2.asm # TODO: Add multiboot2 support
+    src/kernel.c
+	src/kernel.cpp
+
+	# Memory 
+	src/memory/malloc.c
+	src/memory/paging.c
+	src/memory/memutils.c
+	src/pit.c
+
+	# Keyboard
+	src/input.c
+
+	# Apps
+	src/apps/song/song.c
+
 )
 
 # Include directories for the kernel target
 target_include_directories(uiaos-kernel PUBLIC include)
-
 
 # Specify compile options for C and C++
 target_compile_options(uiaos-kernel PRIVATE
@@ -93,20 +109,9 @@ target_link_options(uiaos-kernel PUBLIC
 )
 
 
-target_link_options(
-	uiaos-kernel
-	PUBLIC "-ffreestanding"
-	PUBLIC "-nostdlib"
-	PUBLIC "-static"
-	PUBLIC "-pie"
-	PUBLIC "-T${OS_KERNEL_LINKER}"
-)
-
-
 # Set properties for the kernel target
 set_target_properties(uiaos-kernel PROPERTIES
     OUTPUT_NAME "${OS_KERNEL_BINARY}"
-    #LINK_FLAGS "${OS_KERNEL_LINK_FLAGS}"
 )
 
 ########################################

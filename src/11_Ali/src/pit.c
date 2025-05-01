@@ -8,7 +8,9 @@ static uint32_t ticks = 0;
 void pit_irq_handler(registers_t* regs, void* context) {
     ticks++;
 }
-
+uint32_t pit_get_tick_count(void) {
+    return ticks;
+}
 void init_pit() {
     // Register the IRQ handler
     register_irq_handler(IRQ0, pit_irq_handler, NULL);

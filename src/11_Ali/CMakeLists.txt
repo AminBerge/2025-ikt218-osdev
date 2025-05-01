@@ -89,6 +89,7 @@ add_executable(uiaos-kernel
 
 	# Apps
 	src/apps/song/song.c
+	
 
 )
 

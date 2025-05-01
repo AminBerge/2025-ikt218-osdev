@@ -9,7 +9,9 @@ typedef struct {
     uint32_t frequency; // The frequency of the note in Hz (e.g., A4 = 440 Hz)
     uint32_t duration;  // The duration of the note in milliseconds
 } Note;
-
+extern volatile bool g_should_stop;
+extern bool g_is_playing;
+extern uint32_t g_current_song;
 // Define a struct to represent a song
 typedef struct {
     Note* notes;        // Pointer to an array of Note structs representing the song

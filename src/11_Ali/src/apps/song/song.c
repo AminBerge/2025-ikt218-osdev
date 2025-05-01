@@ -55,16 +55,27 @@ void stop_sound(){
 void play_song_impl(Song *song) {
     enable_speaker();
     for (uint32_t i = 0; i < song->length; i++) {
+        if (g_should_stop) {
+            printf("[INFO] Playback interrupted at note %d\n", i);
+
+            // Small delay to let stop_sound settle
+            for (int j = 0; j < 1000; j++) {
+                asm volatile("nop");
+            }
+
+            break;
+        }
+
         Note* note = &song->notes[i];
         printf("Note: %d, Freq=%d, Sleep=%d\n", i, note->frequency, note->duration);
         play_sound(note->frequency);
         sleep_interrupt(note->duration);
         stop_sound();
-
-        
     }
     disable_speaker();
 }
+
+
 
 void play_song(Song *song) {
     play_song_impl(song);

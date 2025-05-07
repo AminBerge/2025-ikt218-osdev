@@ -6,6 +6,8 @@ extern "C"{
     #include "interrupts.h"
     #include "input.h"
     #include "song/song.h"
+    #include "matrix_rain.h"
+    #include "vga.h"
 }
 
 
@@ -126,13 +128,15 @@ int kernel_main(){
         player->play_song(songs[i]);
         printf("Finished playing the song.\n");
     }
-
-    // Main loop
-    printf("Kernel main loop\n");
+    init_matrix_rain();
+    printf("Starting Matrix Rain Animation\n");
     while(true) {
-        // Kernel main tasks
+        update_matrix_rain();
+        render_matrix_rain();
+        // Add a small delay
+        for(int i = 0; i < 100000; i++) { asm volatile("pause"); }
     }
-
+    
     // This part will not be reached
     printf("Done!\n");
     return 0;

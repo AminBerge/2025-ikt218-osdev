@@ -24,12 +24,6 @@ void print_backtrace()
   void* ra;
   if (frp(0, ra)) {
     print_trace(0, ra);
-    if (frp(1, ra)) {
-      print_trace(1, ra);
-      if (frp(2, ra)) {
-        print_trace(2, ra);
-      }
-    }
   }
 }
 

@@ -89,6 +89,8 @@ add_executable(uiaos-kernel
 
 	# Apps
 	src/apps/song/song.c
+	src/matrix_rain.cpp
+	src/vga.cpp
 
 )
 
